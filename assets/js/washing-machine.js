@@ -8,19 +8,19 @@
       isActive: true,
       statusClass: 'isOpen',
       controller: root.querySelector('.lavanda-wm__opening'),
-      controllerLabel: ["CLOSE", "OPEN"]
+      controllerLabel: ["ЗАКРЫТЬ", "ОТКРЫТЬ"]
     },
     content: {
       isActive: true,
       statusClass:'isFilled',
       controller: root.querySelector('.lavanda-wm__content'),
-      controllerLabel: ["EMPTY", "FILL"]
+      controllerLabel: ["ДОСТАТЬ", "ЗАГРУЗИТЬ"]
     },
     power: {
       isActive: false,
       statusClass: 'isWashing',
       controller: root.querySelector('.lavanda-wm__power'),
-      controllerLabel: ["STOP", "START"]
+      controllerLabel: ["СТОП", "СТАРТ"]
     }
   };
 
