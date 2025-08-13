@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css?family=Nova+Mono&display=swap');
+
+.lavanda-wm {
+  font-family: 'Nova Mono', monospace;
+}
+
+.lavanda-wm * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.lavanda-wm__wrapper {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Машина */
+.lavanda-wm__machine {
+  background: #ececf4;
+  width: 300px;
+  height: 388px;
+  border-radius: 15px;
+  border-top: 15px solid #80819c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset -15px -15px 0 0 rgba(196,196,210,0.3);
+  padding: 85px 0 45px;
+}
+
+.lavanda-wm__machine::before,
+.lavanda-wm__machine::after {
+  content: "";
+  position: absolute;
+  border: 4px solid transparent;
+  width: 150%;
+}
+
+.lavanda-wm__machine::before {
+  border-bottom-color: #c4c4d2;
+  height: 70px;
+  top: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 -15px 0 0 rgba(196,196,210,0.3);
+}
+
+.lavanda-wm__machine::after {
+  border-top-color: #c4c4d2;
+  height: 30px;
+  bottom: 0;
+}
+
+.lavanda-wm__controls {
+  position: absolute;
+  top: 22px;
+  right: 30px;
+  text-align: center;
+  background: #242527;
+  color: lightgreen;
+  border-radius: 5px;
+  padding: 3px 10px;
+  font-weight: 500;
+  font-size: 1em;
+  min-width: 60px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lavanda-wm__controls::before {
+  content: "━━";
+  font-size: 14px;
+  color: #80819c;
+  box-shadow: inset 0px -15px 0px 0px rgba(196,196,210,0.3);
+  height: 32px;
+  width: 32px;
+  border: 3px solid #c4c4d2;
+  border-radius: 100%;
+  position: absolute;
+  left: calc(100% - 50px);
+}
+
+.lavanda-wm__door,
+.lavanda-wm__tub {
+  transition: all 0.2s ease-in-out;
+}
+
+.lavanda-wm__door {
+  width: 200px;
+  height: 200px;
+  border: 25px solid #80819c;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  box-shadow: inset 5px 10px 0 0 rgba(0,0,0,0.1), 5px -1px 0 0 transparent;
+  transform-origin: 0% 0%;
+  transform: rotateY(0deg);
+}
+
+.lavanda-wm__door::after {
+  content: "";
+  background: #6b6c84;
+  height: 50%;
+  width: 17%;
+  right: 0;
+  border-radius: 40% 30% 30% 40% / 50% 45% 45% 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.lavanda-wm__door::before {
+  content: "";
+  width: 60%;
+  height: 60%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 50%;
+  border-left: 15px solid white;
+  opacity: 0.2;
+  box-shadow: inset -10px 10px 0 0 rgba(255,255,255,0.2);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  z-index: 2;
+}
+
+.lavanda-wm__tub {
+  width: 175px;
+  height: 175px;
+  background: #453e57;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 0;
+  box-shadow: 0 0 0 7px rgba(196,196,210,0.3);
+}
+
+.lavanda-wm__clothes {
+  position: absolute;
+  opacity: 0;
+  transition: all 0.1s ease-in-out;
+}
+
+.lavanda-wm__clothes:nth-child(1) {
+  background: linear-gradient(#48873e, #7b9f17);
+  width: 70%;
+  height: 25%;
+  bottom: 10%;
+  right: -20%;
+  transform: rotate(-20deg);
+  border-radius: 49% 38% 65% 8% / 30% 12% 51% 36%;
+}
+
+.lavanda-wm__clothes:nth-child(2) {
+  background: linear-gradient(#c22323, #e15050);
+  width: 100%;
+  height: 20%;
+  border-radius: 64% 40% 27% 47% / 63% 63% 32% 36%;
+  bottom: 0;
+}
+
+.lavanda-wm__clothes:nth-child(3) {
+  background: linear-gradient(#5a5589, #4f46b4);
+  width: 70%;
+  height: 25%;
+  transform: rotate(40deg);
+  border-radius: 41% 38% 71% 8% / 51% 36% 51% 24%;
+  bottom: 0;
+  left: -10%;
+}
+
+.lavanda-wm__machine.isOpen .lavanda-wm__door {
+  transform: rotateY(45deg);
+  box-shadow: inset 5px 10px 0 0 transparent, 5px -1px 0 0 #a0a1b8;
+}
+
+.lavanda-wm__machine.isWashing {
+  animation: lavanda-wm-shake 100ms ease-in-out infinite;
+}
+
+.lavanda-wm__machine.isWashing .lavanda-wm__tub {
+  animation: lavanda-wm-rotate 0.6s linear infinite;
+}
+
+.lavanda-wm__machine.isFilled .lavanda-wm__tub .lavanda-wm__clothes {
+  opacity: 1;
+}
+
+@keyframes lavanda-wm-shake {
+  0%, 100% { transform: translate(0, 0) rotate(0); }
+  25% { transform: translate(-1.5px, 1.5px) rotate(0.5deg); }
+  50% { transform: translate(-0.5px, -0.5px) rotate(0.5deg); }
+}
+
+@keyframes lavanda-wm-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.lavanda-wm__playground {
+  margin-top: 25px;
+  width: 300px;
+  display: flex;
+}
+
+.lavanda-wm__btn {
+  flex: 1;
+  background: #ececf4;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  padding: 7px 10px;
+  box-shadow: -1px 2px 0 0 rgba(0,0,0,0.2);
+  transition: background 0.2s ease-in-out;
+  font: inherit;
+  font-size: 0.8em;
+}
+
+.lavanda-wm__btn:hover:not(:disabled) {
+  background: white;
+  cursor: pointer;
+}
+
+.lavanda-wm__btn:active:not(:disabled) {
+  box-shadow: 0px 1px 0 0 rgba(0,0,0,0.2);
+}
+
+.lavanda-wm__opening {
+  margin: 0 15px;
+}

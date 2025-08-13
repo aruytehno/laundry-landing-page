@@ -26,6 +26,7 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/washing-machine.css" rel="stylesheet">
   <style>
     .lavanda-color {
       color: #9370DB !important; /* Сиреневый цвет для названия */
@@ -516,7 +517,26 @@
 
           <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
             <div class="phone-mockup text-center">
-              <img src="assets/img/phone-app-screen.webp" alt="Phone Mockup" class="img-fluid">
+<div class="lavanda-wm">
+  <div class="lavanda-wm__wrapper">
+    <div class="lavanda-wm__machine isFilled isOpen">
+      <div class="lavanda-wm__controls">READY</div>
+      <div class="lavanda-wm__door"></div>
+      <div class="lavanda-wm__tub">
+        <span class="lavanda-wm__clothes"></span>
+        <span class="lavanda-wm__clothes"></span>
+        <span class="lavanda-wm__clothes"></span>
+      </div>
+    </div>
+
+    <div class="lavanda-wm__playground">
+      <button class="lavanda-wm__btn lavanda-wm__content">EMPTY</button>
+      <button class="lavanda-wm__btn lavanda-wm__opening">CLOSE</button>
+      <button class="lavanda-wm__btn lavanda-wm__power" disabled>START</button>
+    </div>
+  </div>
+</div>
+
             </div>
           </div><!-- End Phone Mockup -->
 
@@ -861,6 +881,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/washing-machine.js"></script>
 
 </body>
 
